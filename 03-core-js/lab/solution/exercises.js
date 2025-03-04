@@ -20,6 +20,22 @@ const number = 5;
 const multiplier = 10;
 const product = number * multiplier;
 
+const basePrice = 100;  // This value does not change
+const taxRate = 0.2;    // Fixed tax rate
+
+let finalPrice = basePrice;  // This may change based on conditions
+
+if (basePrice > 50) {
+  let discount = 10;  // Discount applies only in this block
+  finalPrice -= discount;  // Modifying finalPrice
+}
+
+const taxAmount = finalPrice * taxRate;  // taxAmount is derived but never reassigned
+const totalPrice = finalPrice + taxAmount;  // Final computed value
+
+console.log(`Total Price: ${totalPrice}`);
+
+
 // Exercise 5
 
 const books = [
@@ -59,8 +75,8 @@ const bookSummaries = books.map((book) => {
 console.log(bookSummaries);
 
 // Exercise 6
-function* generatePrimes(n: number) {
-  function isPrime(num: number) {
+function* generatePrimes(n) {
+  function isPrime(num) {
     for (let i = 2; i <= Math.sqrt(num); i++) {
       if (num % i === 0) return false;
     }
@@ -79,6 +95,8 @@ function* generatePrimes(n: number) {
   }
 }
 
+const firstHundredPrimes = generatePrimes(100)
+
 // Exercise 7
 const studentGrades = {
   John: 85,
@@ -94,7 +112,7 @@ for (const [student, grade] of Object.entries(studentGrades)) {
 }
 
 // Exercise 8
-function analyzeNumbers(numbers: number[]) {
+function analyzeNumbers(numbers) {
   const max = Math.max(...numbers);
   const min = Math.min(...numbers);
   const sum = numbers.reduce((acc, curr) => acc + curr, 0);
@@ -107,4 +125,4 @@ const nums = [10, 20, 30, 40, 50];
 const analysis = analyzeNumbers(nums);
 console.log(analysis);
 
-export {};
+export { };

@@ -23,10 +23,10 @@
 - Node.js Overview
 - Core JS Concepts
 - Node.js Module System
-- Evolution of Async in Node
 
 # Day 2: Refactor API to use a Node framework (Express)
 
+- Evolution of Async in Node
 - Debugging with Node
 - Node.js testing
 - RESTful Services

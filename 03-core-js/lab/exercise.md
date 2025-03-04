@@ -71,6 +71,7 @@ Review the following code:
 var number = 5;
 var multiplier = 10;
 var product = number * multiplier;
+
 ```
 
 Refactor the code using `let` and `const` where appropriate.

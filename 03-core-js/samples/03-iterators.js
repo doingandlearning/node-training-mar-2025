@@ -31,6 +31,7 @@ const medallists = {
 	"Ilias Iliadis": 15,
 };
 
+// .keys() .values()  .entries()
 for (const [medalist, medals] of Object.entries(medallists)) {
 	console.log(`${medalist} achieved ${medals} medals.`)
 }
