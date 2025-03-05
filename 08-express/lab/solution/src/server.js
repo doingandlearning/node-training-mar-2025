@@ -1,10 +1,10 @@
 import express from "express";
-import userRoutes from "./routes/user.routes";
+import userRoutes from "./routes/user.routes.js";
 import pino from "express-pino-logger";
-import errorHandling from "./middleware/errorHandling";
-import apiKeyAuth from "./middleware/apiKeyAuth";
-import requestTimingMiddleware from "./middleware/requestTimingMiddleware";
-import rateLimitingMiddleware from "./middleware/rateLimit";
+import errorHandling from "./middleware/errorHandling.js";
+import apiKeyAuth from "./middleware/apiKeyAuth.js";
+import requestTimingMiddleware from "./middleware/requestTimingMiddleware.js";
+import rateLimitingMiddleware from "./middleware/rateLimit.js";
 const app = express();
 const port = process.env.PORT || 3000;
 

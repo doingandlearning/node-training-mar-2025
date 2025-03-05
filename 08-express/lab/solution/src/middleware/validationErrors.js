@@ -1,5 +1,4 @@
 import { check, validationResult } from "express-validator";
-import { NextFunction, Request, Response } from "express";
 
 // Validation rules for /register
 const validateUserObject = [

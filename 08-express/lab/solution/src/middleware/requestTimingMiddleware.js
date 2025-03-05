@@ -1,5 +1,3 @@
-import { Request, Response, NextFunction } from "express";
-
 function requestTimingMiddleware(
   req,
   res,

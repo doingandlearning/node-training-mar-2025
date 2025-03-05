@@ -1,10 +1,10 @@
 import express, { Router } from "express";
-import users from "../controllers/user.controller";
-import apiKeyAuth from "../middleware/apiKeyAuth";
+import users from "../controllers/user.controller.js";
+import apiKeyAuth from "../middleware/apiKeyAuth.js";
 import {
   handleValidationErrors,
   validateUserObject,
-} from "../middleware/validationErrors";
+} from "../middleware/validationErrors.js";
 const router = Router();
 
 router.use(express.json());

@@ -1,5 +1,3 @@
-import { Request, Response, NextFunction } from "express";
-
 const rateLimitMap = new Map();
 const LIMIT = 10; // Max requests per time window
 const WINDOW_MS = 60 * 1000; // Time window in milliseconds (1 minute)
