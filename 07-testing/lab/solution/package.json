@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest",
+    "test:debug": "vitest --inspect-brk --no-file-parallelism",
     "build": "tsc",
     "dev": "tsx --env-file=./src/.env --watch src/server.ts localhost"
   },
