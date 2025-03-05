@@ -26,11 +26,11 @@
 
 # Day 2: Refactor API to use a Node framework (Express)
 
-- Evolution of Async in Node
-- Debugging with Node
-- Node.js testing
-- RESTful Services
-- Express
+- Evolution of Async in Node -> callback, promise, async/await, ... signals/observables
+- Debugging with Node -> VSCode, breakpoints, instrumenting
+- Node.js testing -> npm init -> vitest (compatible jest)
+- RESTful Services -> what makes a service restful?
+- Express -> express
 
 # Day 3: Refactor API to have a persistent backend
 
