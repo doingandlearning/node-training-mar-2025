@@ -1,0 +1,5 @@
+{
+	"scripts": {
+		"dev:with-debug": "node --inspect-brk 02-server.js"
+	}
+}
