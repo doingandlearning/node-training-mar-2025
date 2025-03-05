@@ -15,36 +15,36 @@ import fs from "node:fs/promises"
 // let regionsData;
 // let allNews;
 
-// fs.readFile("./user.json", "utf-8")
-// 	.then(userString => {
-// 		userData = JSON.parse(userString)
-// 		return fs.readFile("./regions.json", "utf-8")
-// 	}).then(regionsString => {
-// 		regionsData = JSON.parse(regionsString)
-// 		return fs.readFile("./news.json", "utf-8")
-// 	}).then(newsString => {
-// 		allNews = JSON.parse(newsString)
-// 		const headlines = regionsData[userData.region]
-// 		const userNews = allNews.filter((article) => headlines.includes(article.id))
-// 		console.log(userNews)
-// 	})
-// 	.catch(err => {
-// 		console.log(err)
-// 		console.log("Something went wrong ... ")
-// 	})
+fs.readFile("./user.json", "utf-8")
+	.then(userString => {
+		userData = JSON.parse(userString)
+		return fs.readFile("./regions.json", "utf-8")
+	}).then(regionsString => {
+		regionsData = JSON.parse(regionsString)
+		return fs.readFile("./news.json", "utf-8")
+	}).then(newsString => {
+		allNews = JSON.parse(newsString)
+		const headlines = regionsData[userData.region]
+		const userNews = allNews.filter((article) => headlines.includes(article.id))
+		console.log(userNews)
+	})
+	.catch(err => {
+		console.log(err)
+		console.log("Something went wrong ... ")
+	})
 
-// Promise.all([
-// 	fs.readFile("./user.json", "utf-8"),
-// 	fs.readFile("./regions.json", "utf-8"),
-// 	fs.readFile("./news.json", "utf-8")
-// ]).then(([userString, regionsString, newsString]) => {
-// 	const userData = JSON.parse(userString)
-// 	const regionsData = JSON.parse(regionsString)
-// 	const allNews = JSON.parse(newsString)
-// 	const headlines = regionsData[userData.region]
-// 	const userNews = allNews.filter((article) => headlines.includes(article.id))
-// 	console.log(userNews)
-// }).catch(err => console.log(err))
+Promise.all([
+	fs.readFile("./user.json", "utf-8"),
+	fs.readFile("./regions.json", "utf-8"),
+	fs.readFile("./news.json", "utf-8")
+]).then(([userString, regionsString, newsString]) => {
+	const userData = JSON.parse(userString)
+	const regionsData = JSON.parse(regionsString)
+	const allNews = JSON.parse(newsString)
+	const headlines = regionsData[userData.region]
+	const userNews = allNews.filter((article) => headlines.includes(article.id))
+	console.log(userNews)
+}).catch(err => console.log(err))
 
 Promise.allSettled([
 	fs.readFile("./user.json", "utf-8"),
