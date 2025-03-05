@@ -1,1 +1,32 @@
 GET http://localhost:3000
+
+###
+
+GET http://localhost:3000/api/v1/characters
+
+
+###
+
+POST http://localhost:3000/api/v1/characters
+Content-Type: application/json
+
+{
+	"name": "Luke Skywalker",
+	"favouriteColour": "yellow"
+}
+
+### 
+
+GET http://localhost:3000/api/v1/characters/1
+### 
+
+PATCH http://localhost:3000/api/v1/characters/1
+Content-Type: application/json
+
+{
+	"name": "Master Luke Skywalker"
+}
+
+###
+
+DELETE  http://localhost:3000/api/v1/characters/1 
