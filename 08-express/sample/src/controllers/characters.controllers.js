@@ -5,7 +5,7 @@ export function getAllCharacters(req, res) {
 	res.json(characters)
 }
 
-export function createNewCharacter(req, res) {
+export function createNewCharacter(req, res, next) {
 	const character = req.body
 	console.log(character)
 	character.id = currentId++

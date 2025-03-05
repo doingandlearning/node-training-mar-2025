@@ -4,11 +4,12 @@ GET http://localhost:3000
 
 GET http://localhost:3000/api/v1/characters
 
-
 ###
 
 POST http://localhost:3000/api/v1/characters
 Content-Type: application/json
+x-api-key: supersecretkey
+
 
 {
 	"name": "Luke Skywalker",
@@ -22,6 +23,7 @@ GET http://localhost:3000/api/v1/characters/1
 
 PATCH http://localhost:3000/api/v1/characters/1
 Content-Type: application/json
+x-api-key: supersecretkey
 
 {
 	"name": "Master Luke Skywalker"
@@ -30,3 +32,4 @@ Content-Type: application/json
 ###
 
 DELETE  http://localhost:3000/api/v1/characters/1 
+x-api-key: supersecretkey
