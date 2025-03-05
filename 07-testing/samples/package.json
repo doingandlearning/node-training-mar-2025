@@ -1,0 +1,14 @@
+{
+  "name": "07-testing",
+  "version": "0.0.1",
+  "description": "This is my testing package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Cunningham",
+  "license": "MIT",
+  "devDependencies": {
+    "vitest": "^3.0.7"
+  }
+}
