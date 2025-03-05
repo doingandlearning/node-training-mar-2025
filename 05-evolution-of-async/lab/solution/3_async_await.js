@@ -13,7 +13,7 @@ async function fetchPlanetAsync(url) {
   return response.json();
 }
 
-(async () => {
+async function run() {
   try {
     const person = await fetchPersonAsync();
     console.log("Person:", person.name);
@@ -22,4 +22,6 @@ async function fetchPlanetAsync(url) {
   } catch (error) {
     console.error("Error:", error);
   }
-})();
+}
+
+run(); 

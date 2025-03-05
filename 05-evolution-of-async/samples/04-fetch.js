@@ -1,6 +1,6 @@
 async function getData() {
 	try {
-		const response = await fetch('https://api.github.com/user/doingandlearning')
+		const response = await fetch('https://api.github.com/users/doingandlearning')
 		if (!response.ok) {
 			throw new Error(`Error with request: ${response.status} - ${response.statusText}`)
 		}
