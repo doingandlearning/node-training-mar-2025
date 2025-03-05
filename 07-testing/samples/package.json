@@ -4,7 +4,7 @@
   "description": "This is my testing package",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "author": "Kevin Cunningham",
   "license": "MIT",

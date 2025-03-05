@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`The add function errors when passed non-numbers 2`] = `[TypeError: Both values need to be positive numbers.]`;
