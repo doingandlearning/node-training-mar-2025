@@ -1,16 +1,38 @@
+import CharacterModel from "../models/characters.models.js"
 const characters = []
 let currentId = 1
 
-export function getAllCharacters(req, res) {
-	res.json(characters)
+export async function getAllCharacters(req, res) {
+	try {
+		const allCharacters = await CharacterModel.find()
+		res.send(allCharacters)
+	} catch (error) {
+		res.status(400).json({ message: "Something went wrong" })
+		console.log(error)
+	}
 }
 
-export function createNewCharacter(req, res, next) {
-	const character = req.body
-	console.log(character)
-	character.id = currentId++
-	characters.push(character)
-	res.json(character)
+export async function createNewCharacter(req, res, next) {
+	try {
+		const character = req.body
+		if (!character.name) {
+			res.status(400).json({ message: "You need to provide a name" })
+			return
+		}
+		const newCharacter = new CharacterModel(character)
+		await newCharacter.save()
+		res.json(newCharacter)
+
+	} catch (error) {
+		if (error.message.startsWith("E11000")) {
+			res
+				.status(400)
+				.send({ message: "You already have someone with that name." });
+			return;
+		}
+		res.status(400).json({ message: "Something went wrong" })
+		console.log(error)
+	}
 }
 
 export function getCharacterById(req, res) { // /:id
