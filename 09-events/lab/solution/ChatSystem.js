@@ -8,9 +8,16 @@ class ChatSystem extends EventEmitter {
     this.chatHistory = [];
   }
 
+  events = {
+    UserJoined: "user-joined",
+    UserLeft: "user-left",
+    Message: "message",
+    ListUsers: "list-users"
+  }
+
   join(username) {
     this.users.push(username);
-    this.emit("user-joined", username);
+    this.emit(this.events.UserJoined, username);
     this.chatHistory.forEach((msg) => {
       console.log(msg);
     });
@@ -20,7 +27,7 @@ class ChatSystem extends EventEmitter {
     const index = this.users.indexOf(username);
     if (index > -1) {
       this.users.splice(index, 1);
-      this.emit("user-left", username);
+      this.emit(this.events.UserLeft, username);
     }
   }
 
@@ -28,29 +35,36 @@ class ChatSystem extends EventEmitter {
     const formattedMessage = `${username}: ${message}`;
     this.chatHistory.push(formattedMessage);
     if (this.chatHistory.length > 10) this.chatHistory.shift();
-    this.emit("message", { username, message });
+    this.emit(this.events.Message, { username, message });
   }
 
   listUsers() {
-    this.emit("list-users", this.users);
+    this.emit(this.events.ListUsers, this.users);
   }
 }
 
 const chat = new ChatSystem();
 
-chat.on("user-joined", (username) => {
+chat.on(chat.events.UserJoined, (username) => {
   console.log(`${username} joined the chat!`);
 });
-
-chat.on("user-left", (username) => {
-  console.log(`${username} left the chat.`);
+chat.on(chat.events.UserJoined, (username) => {
+  console.log(`There are ${chat.users.length} users in the chat.`);
 });
 
-chat.on("message", (data) => {
+chat.on(chat.events.UserLeft, (username) => {
+  console.log(`${username} left the chat.`);
+});
+chat.on(chat.events.UserLeft, (username) => {
+  console.log(`There are ${chat.users.length} users in the chat.`);
+});
+
+
+chat.on(chat.events.Message, (data) => {
   console.log(`${data.username}: ${data.message}`);
 });
 
-chat.on("list-users", (users) => {
+chat.on(chat.events.ListUsers, (users) => {
   console.log(`Online Users: ${users.join(", ")}`);
 });
 
