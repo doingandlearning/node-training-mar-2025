@@ -5,11 +5,12 @@ import errorHandling from "./middleware/errorHandling.js";
 import apiKeyAuth from "./middleware/apiKeyAuth.js";
 import requestTimingMiddleware from "./middleware/requestTimingMiddleware.js";
 import rateLimitingMiddleware from "./middleware/rateLimit.js";
+import redisRateLimiting from "./middleware/rateLimitRedis.js"
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(requestTimingMiddleware);
-app.use(rateLimitingMiddleware);
+app.use(redisRateLimiting);
 app.disable("x-powered-by");
 app.use("/api/v1/users", userRoutes);
 

@@ -1,7 +1,6 @@
 import fs from "fs";
 import { Writable } from "stream";
 
-// Define the interface for the log object
 
 
 // Custom Writable stream class for logging

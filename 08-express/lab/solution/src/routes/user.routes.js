@@ -13,7 +13,6 @@ router
   .route("/")
   .get(users.getAllUsers)
   .post(
-    apiKeyAuth,
     validateUserObject,
     handleValidationErrors,
     users.createNewUser
