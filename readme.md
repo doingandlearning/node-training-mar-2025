@@ -3,7 +3,7 @@
 - March 4th - 6th 
 - Kevin Cunningham
 - Miro Link: https://miro.com/app/board/uXjVIWG0HpU=/
-- Feedback link:
+- Feedback link: https://forms.microsoft.com/pages/responsepage.aspx?id=e_W03kuia0Of7lReNqN5xmk5rXZ1BDVDojjME-DIjrdURTRGQTVWTTdSNUhYWUtQS1A4Uk9GUDFUUCQlQCN0PWcu&route=shorturl
 
 # Timings:
 
@@ -34,9 +34,9 @@
 
 # Day 3: Refactor API to have a persistent backend
 
-- Events in Node
-- Error handling
-- Buffers and Streams
-- Node.js and Databases -> MongoDB
+- Events in Node -> event driven -> event emitters
+- Error handling -> try/catch -> custom errors -> error propogration
+- Buffers and Streams -> stream data .. 
+- Node.js and Databases -> MongoDB ... persistent
 
 - Any other topics around Node
