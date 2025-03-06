@@ -2,19 +2,15 @@ import fs from "fs";
 import path from "path";
 import { Writable } from "stream";
 
-// Define the interface for log data
-interface LogData {
-  level: string;
-  message: string;
-}
+
 
 // Custom Writable stream class for logging with log rotation
 class LogStream extends Writable {
-  private currentLogSize: number;
-  private maxLogSize: number;
-  private logFilePath: string;
+  currentLogSize;
+  maxLogSize;
+  logFilePath;
 
-  constructor(logFilePath: string, maxLogSize: number) {
+  constructor(logFilePath, maxLogSize) {
     super({ objectMode: true });
     this.logFilePath = logFilePath;
     this.maxLogSize = maxLogSize;
@@ -26,7 +22,7 @@ class LogStream extends Writable {
     }
   }
 
-  private rotateLogFile() {
+  rotateLogFile() {
     const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
     const rotatedFilePath = path.join(
       path.dirname(this.logFilePath),
@@ -39,10 +35,10 @@ class LogStream extends Writable {
   }
 
   _write(
-    logData: LogData,
-    encoding: BufferEncoding,
-    callback: (error?: Error | null) => void
-  ): void {
+    logData,
+    encoding,
+    callback
+  ) {
     const timestamp = new Date().toISOString();
     const logEntry = `${timestamp} [${logData.level}]: ${logData.message}\n`;
 
