@@ -1,6 +1,7 @@
 import express from "express"
 import characterRoutes from "./routes/characters.routes.js"
 import apiKey from "./middlewares/apiKey.js"
+import mongoose from "mongoose"
 
 const app = express()
 app.use(apiKey)
