@@ -26,6 +26,7 @@ const watcher = new FileWatcher(filePath)
 watcher.on("fileChanged", (data) => {
 	console.log(data)
 })
+
 watcher.on("fileChanged", (data) => {
 	fs.appendFile("../log.log", `${data.eventType}: ${data.filename}`, (err) => {
 		if (err) console.log(err)
