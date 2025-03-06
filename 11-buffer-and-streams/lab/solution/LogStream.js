@@ -7,6 +7,7 @@ import { Writable } from "stream";
 class LogStream extends Writable {
   constructor(logFilePath) {
     super({ objectMode: true });
+    this.logFilePath = logFilePath
   }
 
   _write(

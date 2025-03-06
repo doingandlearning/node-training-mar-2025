@@ -2,7 +2,7 @@ import Redis from 'ioredis';
 
 const redis = new Redis(); // Default connection to Redis server (localhost:6379)
 
-const LIMIT = 1; // Max requests per time window
+const LIMIT = 3; // Max requests per time window
 const WINDOW_MS = 60 * 1000; // 1-minute window
 
 async function rateLimitingMiddleware(req, res, next) {
