@@ -45,7 +45,7 @@ const rl = readline.createInterface({
 console.log(
   "Commands:\n/join [username]\n/leave [username]\n/message [username] [message]\n/list\n"
 );
-rl.prompt();
+rl.prompt(); // input()
 
 rl.on("line", (input) => {
   const [command, ...args] = input.split(" ");

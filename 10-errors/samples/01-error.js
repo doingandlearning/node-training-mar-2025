@@ -6,7 +6,7 @@
 
 class OddNumberError extends Error {
 	constructor(varName = '', code = "ERR_ODD_NUMBER") {
-		super(`${varName} must be even.💩 `)
+		super(`${varName} must be even.💩`)
 		this.code = code
 	}
 }
