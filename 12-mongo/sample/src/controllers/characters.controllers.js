@@ -35,33 +35,47 @@ export async function createNewCharacter(req, res, next) {
 	}
 }
 
-export function getCharacterById(req, res) { // /:id
-	const character = characters.find(char => char.id === parseInt(req.params.id))
-
-	if (!character) {
-		res.status(404).json({ message: "Character not found" })
-		return
-	}
-	res.json(character)
-}
-
-export function updateCharacter(req, res) {
-	const characterIndex = characters.findIndex(c => c.id === parseInt(req.params.id))
-
-	if (characterIndex === -1) {
-		res.status(404).json({ message: "Character not found" })
-	} else {
-		characters[characterIndex] = { ...characters[characterIndex], ...req.body }
-		res.send(characters[characterIndex])
+export async function getCharacterById(req, res) { // /:id
+	try {
+		const character = await CharacterModel.findById(req.params.id)
+		if (!character) {
+			res.status(404).json({ message: "Character not found" })
+		} else {
+			res.json(character)
+		}
+	} catch (error) {
+		res.status(400).json({ message: "Something went wrong" })
+		console.log(error)
 	}
 }
-export function deleteCharacter(req, res) {
-	const characterIndex = characters.findIndex(c => c.id === parseInt(req.params.id))
 
-	if (characterIndex === -1) {
-		res.status(404).json({ message: "Character not found" })
-	} else {
-		characters.splice(characterIndex, 1)
-		res.status(204).send()
+export async function updateCharacter(req, res) {
+	try {
+		const character = await CharacterModel.findByIdAndUpdate(
+			req.params.id,
+			req.body,
+			{ new: true }
+		)
+		if (!character) {
+			res.status(404).json({ message: "Character not found" })
+		} else {
+			res.json(character)
+		}
+	} catch (error) {
+		res.status(400).json({ message: "Something went wrong" })
+		console.log(error)
+	}
+}
+export async function deleteCharacter(req, res) {
+	try {
+		const character = await CharacterModel.findByIdAndDelete(req.params.id)
+		if (!character) {
+			res.status(404).json({ message: "Character not found" })
+		} else {
+			res.status(204).send()
+		}
+	} catch (error) {
+		res.status(400).json({ message: "Something went wrong" })
+		console.log(error)
 	}
 }
